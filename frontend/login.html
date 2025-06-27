@@ -1,3 +1,4 @@
+<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body, html {
       height: 100%;
@@ -113,20 +110,14 @@
     .signup-link a:hover {
       color: #8e0e47;
     }
-
-    footer {
-      font-size: 0.9rem;
-      color: #b06a8f;
-      font-weight: 500;
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Login</h1>
-    <p class="tagline">Welcome back to Glamorous. Let’s get you signed in.</p>
+    <p class="tagline">Welcome back to Glamorous Haven. Let’s get you signed in.</p>
 
-    <form action="/login" method="POST" novalidate>
+    <form onsubmit="event.preventDefault(); redirectToHome();" novalidate>
       <label for="email">Email Address</label>
       <input type="email" id="email" name="email" placeholder="you@example.com" required />
 
@@ -137,8 +128,12 @@
     </form>
 
     <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
-
-    
   </div>
+
+  <script>
+    function redirectToHome() {
+      window.location.href = "home.html";
+    }
+  </script>
 </body>
 </html>
