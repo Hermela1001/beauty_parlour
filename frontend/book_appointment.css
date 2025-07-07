@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffe4f0;
+  color: #5a104d;
+  font-size: 18px;
+}
+
+/* Navbar */
+.navbar {
+  background: #fff;
+  padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ffc1e3;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-links {
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #5a104d;
+}
+
+.book-now {
+  background: #b1005f;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.profile-pic {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+
+.hero-image {
+  height: 280px;
+  background-image: url('interior.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.booking-section {
+  padding: 60px 40px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.booking-section h1 {
+  color: #b1005f;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.booking-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.booking-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.booking-form select,
+.booking-form input[type="date"],
+.booking-form input[type="time"],
+.booking-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+
+.calendar-wrapper {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.calendar {
+  display: inline-block;
+  padding: 20px;
+  border: 1px solid #ffc1e3;
+  border-radius: 10px;
+}
+
+.calendar p {
+  margin-bottom: 10px;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 32px);
+  gap: 8px;
+}
+
+.days span {
+  text-align: center;
+}
+
+.highlight {
+  background: #b1005f;
+  color: white;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+
+.submit-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.submit-button button {
+  background: #b1005f;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
