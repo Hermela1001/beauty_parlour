@@ -1,0 +1,153 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffe4f0;
+  color: #5a104d;
+  font-size: 13px;
+}
+
+
+.navbar {
+  background: #fff;
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ffc1e3;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: #5a104d;
+}
+
+.nav-links {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #5a104d;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #b1005f;
+}
+
+.book-btn {
+  background: #b1005f;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #880047;
+}
+
+.profile-pic {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  margin-left: 10px;
+  object-fit: cover;
+}
+
+
+.header {
+  padding: 40px 30px 25px 30px;
+  text-align: center;
+}
+
+.header h1 {
+  color: #b1005f;
+  font-size: 20px;
+}
+
+.header p {
+  font-size: 18px;
+}
+
+.header-buttons {
+  margin-top: 20px;
+}
+
+
+.header-buttons .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 8px;
+  background-color: #ffcce5;
+  color: #5a104d;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-buttons .btn.active,
+.header-buttons .btn:hover {
+  background-color: #b1005f;
+  color: white;
+}
+
+.services-group {
+  padding: 0 30px 50px 30px;
+}
+
+.services-group h2 {
+  color: #b1005f;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+
+.service-card {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.last-service-card {
+  margin-bottom: 32px;
+}
+
+.service-card h4 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.service-card p {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.service-card img {
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+
+.service-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(177, 0, 95, 0.3);
+}
