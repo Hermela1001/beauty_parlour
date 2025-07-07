@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #fff0f6;
+  color: #4a4a4a;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #fff;
+  padding: 2rem 1rem;
+  border-right: 1px solid #f3d1e3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.profile h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #c2185b;
+}
+
+.profile p {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+nav li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 1rem;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #4a4a4a;
+  font-weight: 500;
+}
+
+nav li.active a,
+nav li.active i {
+  color: #c2185b;
+  font-weight: 700;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+.main-content h1 {
+  color: #c2185b;
+  margin-bottom: 1rem;
+}
+
+.tabs {
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  background: #fff;
+  border: 1px solid #f3d1e3;
+  color: #c2185b;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #c2185b;
+  color: white;
+  border: 1px solid #c2185b;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.appointments-table th,
+.appointments-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f3d1e3;
+}
+
+.badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.badge.confirmed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.view-btn {
+  background-color: #c2185b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
