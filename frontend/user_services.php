@@ -2,8 +2,7 @@
 require 'config.php';
 session_start();
 
-// Admin session check is no longer needed if not using it elsewhere
-// $isAdmin = $_SESSION['is_admin'] ?? false;
+
 
 $sql = "SELECT * FROM services ORDER BY category, id";
 $stmt = $pdo->query($sql);
@@ -151,7 +150,7 @@ $categories = array_keys($servicesByCategory);
             <div class="service-details">
               <h4><?= htmlspecialchars($service['title']) ?></h4>
               <p><?= htmlspecialchars($service['description']) ?></p>
-              <p class="price-tag">Price: ₹<?= htmlspecialchars($service['price']) ?></p>
+              <p class="price-tag">Price: birr<?= htmlspecialchars($service['price']) ?></p>
             </div>
             <img src="<?= htmlspecialchars($service['image_path']) ?>" alt="<?= htmlspecialchars($service['title']) ?>" />
           </div>

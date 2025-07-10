@@ -1,45 +1,42 @@
 <?php
 session_start();
-require_once 'config.php';  
+require_once 'config.php';
 
 
-$user_id =$_SESSION['user_id'] ?? null ;
- if (!$user_id){
-  header("location: user_login.php")
-  ;} 
+$user_id = $_SESSION['user_id'] ?? null;
+if (!$user_id) {
+    header("Location: user_login.php");
+    exit;
+}
 
 try {
     
     $stmt = $pdo->prepare('SELECT * FROM appointments WHERE user_id = ? ORDER BY appointment_date, appointment_time');
     $stmt->execute([$user_id]);
-    $appointments = $stmt->fetchAll();
+    $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    echo "Error fetching appointments: " . $e->getMessage();
+    echo "Error fetching appointments: " . htmlspecialchars($e->getMessage());
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>My Appointments</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="my_appointments.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <div class="container">
-    
-    
     <aside class="sidebar">
-      
       <div class="profile">
-        <img src="profile.jpg" alt="Profile" class="profile-img">
+        <img src="profile.jpg" alt="Profile" class="profile-img" />
         <h3>Isabelle</h3>
         <p>Studio Manager</p>
       </div>
-
-      
       <nav>
         <ul>
           <li><i data-lucide="layout-dashboard"></i><a href="#">Dashboard</a></li>
@@ -51,25 +48,22 @@ try {
       </nav>
     </aside>
 
-    
     <main class="main-content">
       <h1>My Appointments</h1>
 
-      
       <div class="tabs">
         <button class="tab active">Upcoming</button>
         <button class="tab">Completed</button>
         <button class="tab">Cancelled</button>
       </div>
 
-      
       <table class="appointments-table">
         <thead>
           <tr>
             <th>Date</th>
             <th>Time</th>
             <th>Service</th>
-            <th>Client</th>
+            <th>Notes</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -78,17 +72,19 @@ try {
           <?php if (!empty($appointments)): ?>
             <?php foreach ($appointments as $appointment): ?>
               <tr>
-                <td><?= htmlspecialchars(date("F j", strtotime($appointment['appointment_date']))) ?></td>
+                <td><?= htmlspecialchars(date("F j, Y", strtotime($appointment['appointment_date']))) ?></td>
                 <td><?= htmlspecialchars(date("g:i A", strtotime($appointment['appointment_time']))) ?></td>
                 <td><?= htmlspecialchars($appointment['service']) ?></td>
-                <td></td>
+                <td><?= htmlspecialchars($appointment['notes']) ?></td>
                 <td>
                   <?php
                     $status = $appointment['status'];
-                    $badgeClass = '';
-                    if ($status === 'Pending') $badgeClass = 'pending';
-                    elseif ($status === 'Confirmed') $badgeClass = 'confirmed';
-                    elseif ($status === 'Cancelled') $badgeClass = 'cancelled';
+                    $badgeClass = match ($status) {
+                      'Pending' => 'pending',
+                      'Confirmed' => 'confirmed',
+                      'Cancelled' => 'cancelled',
+                      default => '',
+                    };
                   ?>
                   <span class="badge <?= $badgeClass ?>"><?= htmlspecialchars($status) ?></span>
                 </td>
@@ -96,7 +92,7 @@ try {
               </tr>
             <?php endforeach; ?>
           <?php else: ?>
-            <tr><td colspan="6">No appointments found.</td></tr>
+            <tr><td colspan="6">No appointments found for your account.</td></tr>
           <?php endif; ?>
         </tbody>
       </table>
