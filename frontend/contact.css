@@ -1,4 +1,4 @@
-/* Contact Page Scoped Styling */
+
 
 body.contact-page {
   margin: 0;
@@ -8,7 +8,7 @@ body.contact-page {
   font-size: 18px;
 }
 
-/* Navbar */
+
 .contact-navbar {
   background: #fff;
   padding: 14px 40px;
@@ -40,7 +40,7 @@ body.contact-page {
   cursor: pointer;
 }
 
-/* Main Container */
+
 .contact-container {
   max-width: 900px;
   margin: 60px auto;
@@ -58,7 +58,7 @@ body.contact-page {
   color: #b1005f;
 }
 
-/* Form */
+
 .contact-form {
   background: #fff;
   padding: 30px;
@@ -100,7 +100,7 @@ body.contact-page {
   cursor: pointer;
 }
 
-/* Operating Hours */
+
 .contact-hours {
   border-top: 1px solid #ccc;
   padding-top: 20px;
@@ -113,13 +113,13 @@ body.contact-page {
   gap: 10px 40px;
 }
 
-/* Contact Info */
+
 .contact-info {
   border-top: 1px solid #ccc;
   padding-top: 20px;
 }
 
-/* Footer */
+
 .contact-footer {
   background: #fff;
   padding: 20px 40px;

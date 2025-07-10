@@ -1,8 +1,18 @@
 <?php
+session_start(); // Required to access $_SESSION
 require_once 'config.php';
 
 $error = '';
 $success = '';
+
+// Get user_id from session
+$user_id = $_SESSION['user_id'] ?? null;
+
+if (!$user_id) {
+    // Redirect to login page if not logged in
+    header("Location: user_login.php");
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $service = trim($_POST['service'] ?? '');
@@ -11,14 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $notes = trim($_POST['notes'] ?? '');
     $status = 'Pending';
 
-    
-    $user_id = 1;
-
     if (!$service || !$date || !$time) {
         $error = "Please fill in all required fields.";
     } else {
-        
-
         try {
             $stmt = $pdo->prepare("INSERT INTO appointments (user_id, service, appointment_date, appointment_time, notes, status) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->execute([$user_id, $service, $date, $time, $notes, $status]);
@@ -39,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
- 
   <div class="navbar">
     <div class="logo">💄 Glamour Studio</div>
     <div class="nav-links">
@@ -52,10 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </div>
 
- 
   <div class="hero-image"></div>
 
-  
   <div class="booking-section">
     <h1>Book an Appointment</h1>
 
@@ -75,19 +77,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <option>Facial</option>
       </select>
 
-      
       <label>Select Date</label>
       <input type="date" name="date" required>
 
-      
       <label>Select Time</label>
       <input type="time" name="time" required>
 
-      
       <label>Notes (optional)</label>
       <textarea name="notes" placeholder="Any additional notes..."></textarea>
 
-     
       <div class="submit-button">
         <button type="submit">Book Appointment</button>
       </div>
