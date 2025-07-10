@@ -55,3 +55,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+if (typeof lucide !== 'undefined') {
+  lucide.createIcons();
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const tabs = document.querySelectorAll('.tab');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+});

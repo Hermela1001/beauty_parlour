@@ -141,3 +141,24 @@ nav li.active i {
   border-radius: 8px;
   cursor: pointer;
 }
+nav li a {
+  transition: color 0.3s ease;
+}
+
+nav li a:hover {
+  color: #a31544;
+}
+
+.view-btn {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-btn:hover {
+  background-color: #9b1649;
+  box-shadow: 0 4px 12px rgba(194, 24, 91, 0.5);
+}
+
+.appointments-table tr:hover {
+  background-color: #fce6f0;
+  transition: background-color 0.3s ease;
+}
